@@ -1,13 +1,56 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+              android:orientation="vertical"
              tools:context="com.example.administrator.wanpuapp.fragments.MessageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_height="?actionBarSize"
+        >
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+          <ImageView
+              android:layout_weight="1"
+              android:src="@mipmap/big"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"/>
+            <TextView
+                android:gravity="center"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:text="咨讯"
+                android:textSize="40px"
+                android:textColor="#000000"
+                />
+            <ImageView
+                android:layout_weight="1"
+                android:src="@mipmap/side"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:scaleType="fitXY"
+        android:src="@mipmap/banner"/>
+
+    <android.support.design.widget.TabLayout
+        android:layout_marginTop="5dp"
+        android:id="@+id/frag_message_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

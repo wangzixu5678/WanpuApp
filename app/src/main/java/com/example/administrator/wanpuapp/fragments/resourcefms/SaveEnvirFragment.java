@@ -1,4 +1,4 @@
-package com.example.administrator.wanpuapp.fragments;
+package com.example.administrator.wanpuapp.fragments.resourcefms;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.example.administrator.wanpuapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MessageFragment extends Fragment {
+public class SaveEnvirFragment extends Fragment {
 
 
-    public MessageFragment() {
+    public SaveEnvirFragment() {
         // Required empty public constructor
     }
 
@@ -23,10 +23,8 @@ public class MessageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View ret = null;
-        ret =  inflater.inflate(R.layout.fragment_message,container, false);
-        
-        return ret;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_save_envir, container, false);
     }
 
 }

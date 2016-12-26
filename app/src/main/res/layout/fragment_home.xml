@@ -55,9 +55,61 @@
         android:src="@mipmap/banner"/>
 
     <android.support.v7.widget.GridLayout
+        android:layout_marginTop="20px"
         android:layout_width="match_parent"
         android:layout_height="340px"
         app:columnCount="3"
         app:rowCount="2">
+
+            <TextView
+                android:id="@+id/water"
+                app:layout_columnWeight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/icon_blue"
+                android:gravity="center"
+                android:text="水"/>
+            <TextView
+                app:layout_columnWeight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/icon_green"
+                android:gravity="center"
+                android:text="气"/>
+
+            <TextView
+                app:layout_columnWeight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/icon_orange"
+                android:gravity="center"
+                android:text="电"/>
+            <TextView
+                app:layout_columnWeight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/icon_red"
+                android:gravity="center"
+                android:text="声"/>
+            <TextView
+                app:layout_columnWeight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/icon_purple"
+                android:gravity="center"
+                android:text="新能源"
+               />
+            <TextView
+                app:layout_columnWeight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/icon_yellow"
+                android:gravity="center"
+                android:text="环保材料"
+                />
     </android.support.v7.widget.GridLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="20px"/>
 </LinearLayout>
