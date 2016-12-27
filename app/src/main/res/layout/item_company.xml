@@ -41,6 +41,8 @@
             android:layout_height="wrap_content"/>
     </FrameLayout>
     <TextView
+        android:maxLines="2"
+        android:ellipsize="end"
         android:id="@+id/company_des"
         android:textColor="#000"
         android:layout_marginLeft="15dp"
