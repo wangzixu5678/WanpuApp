@@ -14,6 +14,7 @@ import android.widget.EditText;
 
 import com.example.administrator.wanpuapp.R;
 import com.example.administrator.wanpuapp.net.NetService;
+import com.example.administrator.wanpuapp.utils.NetUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -69,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     @OnClick(R.id.register_getCheckcode)
     public void onClick(View view) {
-        NetService netService = getNetServices();
+        NetService netService = NetUtil.getNetServices();
         String phoneNumber = mRegisterPhonenumber.getText().toString();
         Call<String> call = netService.getSmsResult(phoneNumber);
         call.enqueue(new Callback<String>() {
@@ -86,15 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private NetService getNetServices() {
-        Retrofit.Builder builder = new Retrofit.Builder();
-        Retrofit retrofit = builder.baseUrl("http://api.10000pro.com/")
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        NetService service = retrofit.create(NetService.class);
-        return service;
-    }
+
 
 
 }

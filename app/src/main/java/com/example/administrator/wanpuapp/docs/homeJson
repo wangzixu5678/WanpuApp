@@ -1,0 +1,129 @@
+{
+  "bannner": [
+    "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/21\/LTAIVpYkrCgM1iRN_20161222165422_1465.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=uIvXonW7sGtlfaREe%2F2J0DCA4Xk%3D",
+    "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/21\/LTAIVpYkrCgM1iRN_20161221165721_1623.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=rpXyIXXW6D2ewDUJEisZKPZHz4g%3D",
+    "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/21\/LTAIVpYkrCgM1iRN_20161200172900_1568.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=O5ndWCyawDQetSh2iRPsu1RiwZk%3D",
+    "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/22\/LTAIVpYkrCgM1iRN_20161222144522_1300.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=w%2BRj0sVs%2FBx%2FbHkW0%2Ftwa9tiDe4%3D"
+  ],
+  "company": [
+    {
+      "id": 1,
+      "name": "\u7d2b\u56ed\u533arr",
+      "logo": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/23\/LTAIVpYkrCgM1iRN_20161213144613_1046.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=utp08K7wfPKFlq5OMz2IIvtjqeM%3D",
+      "image": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/21\/LTAIVpYkrCgM1iRN_20161204191104_1497.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=aFhCgP1L%2FVRthBfJUydpcotZ3jQ%3D",
+      "des": "dddddddddddddddddddddd"
+    },
+    {
+      "id": 2,
+      "name": "\u963f\u91cc\u5df4\u5df4",
+      "logo": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/27\/LTAIVpYkrCgM1iRN_20161222090122_1069.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=PhIQVOCapUU0pGXs5KZ3hBPZMVA%3D",
+      "image": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/27\/LTAIVpYkrCgM1iRN_20161231090131_1367.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=l5%2FFxUNpL0Bs7ZgLtg0rjBCx9Is%3D",
+      "des": "fd\u5c0f\u7535\u996d\u9505\u7535\u996d\u9505\u7535\u996d\u9505"
+    },
+    {
+      "id": 5,
+      "name": "\u767e\u5ea6\u516c\u53f8",
+      "logo": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/21\/LTAIVpYkrCgM1iRN_20161231191031_1856.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=tHVISZMvmRKjYrmH%2BsNkJeWdPY4%3D",
+      "image": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/21\/LTAIVpYkrCgM1iRN_20161238191038_1065.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=LNngrvw1uWfOOCprT48Idu5Keqw%3D",
+      "des": "dasdasda"
+    },
+    {
+      "id": 11,
+      "name": "2312",
+      "logo": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/23\/LTAIVpYkrCgM1iRN_20161219154019_1137.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=AtmqycwGQOBo4nUS6s88kOOfjOY%3D",
+      "image": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/23\/LTAIVpYkrCgM1iRN_20161224154024_1920.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=jWH0Qt1o8DXnZGE6UzAKBXoA%2F60%3D",
+      "des": "asd"
+    },
+    {
+      "id": 10,
+      "name": "google",
+      "logo": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/22\/LTAIVpYkrCgM1iRN_20161223084923_1209.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=mBxt5bT66FX8E85%2FFcGbgxqcQts%3D",
+      "image": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/22\/LTAIVpYkrCgM1iRN_20161230084930_1459.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=PeFqBfGpcveb%2BnHmrGsp9rdawq8%3D",
+      "des": "\u6492\u53d1\u751f\u7684\u74dc\u5206\u5fb7\u56fd\u7684\u975e\u5b98\u65b9\u7684\u5b98\u65b9\u7ed9"
+    }
+  ],
+  "produce": [
+    {
+      "id": 1,
+      "goods": "\u963f\u65af\u8fbe\u56db\u65b9",
+      "small_img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/20\/LTAIVpYkrCgM1iRN_20161212222012_1057.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=eRqpJXqvMlCxTcw3%2FlcfpLCvuV8%3D"
+    },
+    {
+      "id": 2,
+      "goods": "\u5dcd\u5ce8\u800c\u7279\u745e",
+      "small_img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/20\/LTAIVpYkrCgM1iRN_20161210221910_1995.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=45jFjDd20UJIyI2eLUX3p9ySqSs%3D"
+    },
+    {
+      "id": 3,
+      "goods": "\u73af\u4fdd\u771f\u7a7a\u79d1\u6280",
+      "small_img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/20\/LTAIVpYkrCgM1iRN_20161244221744_1643.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=N%2FPK5JFAED1rKZP8sRy5dZcS%2FAY%3D"
+    },
+    {
+      "id": 4,
+      "goods": "\u8001\u9a6c\u547c\u4f26\u8d1d\u5c14\u8349\u539f\u6e38",
+      "small_img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/20\/LTAIVpYkrCgM1iRN_20161232221732_1827.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=blZnz%2FVV6dHqaq0BauX0NYpQzuw%3D"
+    }
+  ],
+  "new": [
+    {
+      "id": 1,
+      "title": "ewrwerw",
+      "create_time": 1482306781,
+      "img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/21\/LTAIVpYkrCgM1iRN_20161207153707_1230.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=MjY%2FEI3rsGgcBMHFF0vTkJcV4Ds%3D"
+    },
+    {
+      "id": 2,
+      "title": "dasdfsfs",
+      "create_time": 1482306781,
+      "img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/21\/LTAIVpYkrCgM1iRN_20161226153826_1401.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=grI%2FwRtwFjNeeldrAtJDDhWX9As%3D"
+    },
+    {
+      "id": 3,
+      "title": "fdsfsfdsdf",
+      "create_time": 1482306781,
+      "img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/21\/LTAIVpYkrCgM1iRN_20161227154027_1231.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=RfvXa4Imy6orKC99b5qbt31h12k%3D"
+    },
+    {
+      "id": 4,
+      "title": "\u516d\u5c0f\u9f84\u7ae5",
+      "create_time": 1482378580,
+      "img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/22\/LTAIVpYkrCgM1iRN_20161237114937_1012.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=n0XTuuYuyi5TttgWOdoRL4An3Ag%3D"
+    },
+    {
+      "id": 5,
+      "title": "\u96fe\u973e",
+      "create_time": 1482378638,
+      "img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/22\/LTAIVpYkrCgM1iRN_20161237115037_1160.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=%2BLkh4mWhpzFa9%2Bj2CxmogNd1EAA%3D"
+    },
+    {
+      "id": 6,
+      "title": "\u517b\u732a\u8fd8\u503a",
+      "create_time": 1482378719,
+      "img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/22\/LTAIVpYkrCgM1iRN_20161257115157_1828.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=d%2BLXzp6Y3rvacYq1vNS%2BbaFSwds%3D"
+    },
+    {
+      "id": 7,
+      "title": "\u6b79\u5f92\u6301\u5200",
+      "create_time": 1482378838,
+      "img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/22\/LTAIVpYkrCgM1iRN_20161254115354_1347.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=TozZqvCvFVbMJ7m7Y6IinAWpEr8%3D"
+    },
+    {
+      "id": 8,
+      "title": "\u88ab\u6253\u4eba",
+      "create_time": 1482379055,
+      "img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/22\/LTAIVpYkrCgM1iRN_20161234115734_1333.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=X4cR%2BVi7SUmlFY1I7zC6%2BeD7ODA%3D"
+    },
+    {
+      "id": 9,
+      "title": "\u5a01\u80c1",
+      "create_time": 1482379104,
+      "img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/22\/LTAIVpYkrCgM1iRN_20161223115823_1788.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=ih4q%2BsiFd%2BIANf5wEZm%2B2TIYIBc%3D"
+    },
+    {
+      "id": 10,
+      "title": "\u5b66\u6821",
+      "create_time": 1482384710,
+      "img": "http:\/\/wanpu.oss-cn-hangzhou.aliyuncs.com\/img\/2016\/12\/22\/LTAIVpYkrCgM1iRN_20161249133149_1116.jpg?OSSAccessKeyId=LTAIVpYkrCgM1iRN&Expires=1482801200&Signature=tXE2PAtq9HTTF4TcqPSzWmQ6wW8%3D"
+    }
+  ]
+}

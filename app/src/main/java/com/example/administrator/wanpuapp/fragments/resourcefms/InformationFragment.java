@@ -12,7 +12,7 @@ import com.example.administrator.wanpuapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class InformationFragment extends Fragment {
+public class InformationFragment extends BaseFragment {
 
 
     public InformationFragment() {
@@ -27,4 +27,8 @@ public class InformationFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_information, container, false);
     }
 
+    @Override
+    public String getFragmentTitle() {
+        return "行业资讯";
+    }
 }

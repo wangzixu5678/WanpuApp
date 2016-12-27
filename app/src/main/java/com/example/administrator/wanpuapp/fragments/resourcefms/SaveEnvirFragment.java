@@ -12,7 +12,7 @@ import com.example.administrator.wanpuapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SaveEnvirFragment extends Fragment {
+public class SaveEnvirFragment extends BaseFragment {
 
 
     public SaveEnvirFragment() {
@@ -27,4 +27,8 @@ public class SaveEnvirFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_save_envir, container, false);
     }
 
+    @Override
+    public String getFragmentTitle() {
+        return "节能环保";
+    }
 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/company_iamge"
+        android:src="@mipmap/banner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@mipmap/banner"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="120dp"
+            android:id="@+id/company_logo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"/>
+        <TextView
+            android:id="@+id/company_name"
+            android:layout_gravity="bottom|center"
+            android:text="惠利特"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:gravity="end"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="bottom"
+            android:textSize="18dp"
+            android:textColor="#ff5a00"
+            android:text="[主营]"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+    <TextView
+        android:id="@+id/company_des"
+        android:textColor="#000"
+        android:layout_marginLeft="15dp"
+        android:text="公司简介"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

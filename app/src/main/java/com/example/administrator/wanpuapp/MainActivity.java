@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 beginTransaction.replace(R.id.main_container,mResourceFragment);
                 break;
             case R.id.main_product:
-                mMainResource.setCompoundDrawablesWithIntrinsicBounds(null,mDrawable_product_black,null,null);
+                mMainProduct.setCompoundDrawablesWithIntrinsicBounds(null,mDrawable_product_black,null,null);
                 beginTransaction.replace(R.id.main_container,mProductFragment);
                 break;
             case R.id.main_user:

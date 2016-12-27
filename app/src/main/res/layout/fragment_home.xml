@@ -4,6 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
+              android:background="#ffffff"
               tools:context="com.example.administrator.wanpuapp.fragments.HomeFragment">
 
     <android.support.v7.widget.Toolbar
@@ -26,7 +27,7 @@
                 android:textColor="#000000"
                 android:textSize="34px"/>
 
-            <EditText
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -47,21 +48,33 @@
                 android:src="@mipmap/side"/>
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
-
-    <ImageView
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/frag_home_viewpager"
         android:layout_width="match_parent"
         android:layout_height="300px"
         android:scaleType="fitXY"
-        android:src="@mipmap/banner"/>
+       />
 
     <android.support.v7.widget.GridLayout
-        android:layout_marginTop="20px"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="340px"
+        android:background="#b3b3b3"
         app:columnCount="3"
         app:rowCount="2">
 
             <TextView
+                android:layout_marginBottom="1px"
+                android:layout_marginLeft="1px"
+                android:background="#ffffff"
                 android:id="@+id/water"
                 app:layout_columnWeight="1"
                 android:layout_width="0dp"
@@ -70,14 +83,19 @@
                 android:gravity="center"
                 android:text="水"/>
             <TextView
+                android:layout_marginBottom="1px"
+                android:layout_marginLeft="1px"
+                android:background="#ffffff"
                 app:layout_columnWeight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawableTop="@mipmap/icon_green"
                 android:gravity="center"
                 android:text="气"/>
-
             <TextView
+                android:layout_marginLeft="1px"
+                android:layout_marginBottom="1px"
+                android:background="#ffffff"
                 app:layout_columnWeight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -85,6 +103,7 @@
                 android:gravity="center"
                 android:text="电"/>
             <TextView
+                android:background="#ffffff"
                 app:layout_columnWeight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -92,6 +111,8 @@
                 android:gravity="center"
                 android:text="声"/>
             <TextView
+                android:layout_marginLeft="1px"
+                android:background="#ffffff"
                 app:layout_columnWeight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -100,6 +121,8 @@
                 android:text="新能源"
                />
             <TextView
+                android:layout_marginLeft="1px"
+                android:background="#ffffff"
                 app:layout_columnWeight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -111,5 +134,126 @@
     <View
         android:background="#efefef"
         android:layout_width="match_parent"
-        android:layout_height="20px"/>
+        android:layout_height="10dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/frag_home_recomtxt"
+                android:layout_centerHorizontal="true"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:text="店铺推荐"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/frag_home_recomtxt"
+                android:background="#000000"
+                android:layout_width="50dp"
+                android:layout_height="1dp"/>
+            <TextView
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/frag_home_recomtxt"
+                android:background="#000000"
+                android:layout_width="50dp"
+                android:layout_height="1dp"/>
+        </RelativeLayout>
+        <com.example.administrator.wanpuapp.customview.MyListView
+            android:id="@+id/frag_home_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:drawableTop="@mipmap/more"
+            android:text="查看更多"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <View
+            android:background="#efefef"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/frag_home_prorecomtxt"
+                android:layout_centerHorizontal="true"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:text="产品推荐"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/frag_home_prorecomtxt"
+                android:background="#000000"
+                android:layout_width="50dp"
+                android:layout_height="1dp"/>
+            <TextView
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/frag_home_prorecomtxt"
+                android:background="#000000"
+                android:layout_width="50dp"
+                android:layout_height="1dp"/>
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/frag_home_pro_recycleview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <View
+            android:background="#efefef"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/frag_home_news"
+                android:layout_centerHorizontal="true"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:text="行业资讯"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/frag_home_news"
+                android:background="#000000"
+                android:layout_width="50dp"
+                android:layout_height="1dp"/>
+            <TextView
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/frag_home_news"
+                android:background="#000000"
+                android:layout_width="50dp"
+                android:layout_height="1dp"/>
+        </RelativeLayout>
+        <com.example.administrator.wanpuapp.customview.MyListView
+            android:id="@+id/frag_home_newslist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:gravity="center"
+            android:text="暂时就这么多"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
 </LinearLayout>

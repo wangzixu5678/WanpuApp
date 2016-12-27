@@ -12,7 +12,7 @@ import com.example.administrator.wanpuapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PolicyFragment extends Fragment {
+public class PolicyFragment extends BaseFragment {
 
 
     public PolicyFragment() {
@@ -27,4 +27,8 @@ public class PolicyFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_policy, container, false);
     }
 
+    @Override
+    public String getFragmentTitle() {
+        return "政策法规";
+    }
 }
