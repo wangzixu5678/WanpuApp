@@ -1,31 +1,41 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
+                                                 android:background="#ffffff"
               tools:context="com.example.administrator.wanpuapp.fragments.MessageFragment">
-
+<android.support.design.widget.AppBarLayout
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.CollapsingToolbarLayout
+        app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         >
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+           >
 
           <ImageView
-              android:layout_weight="1"
+              android:layout_centerVertical="true"
               android:src="@mipmap/big"
-              android:layout_width="0dp"
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content"/>
             <TextView
-                android:gravity="center"
-                android:layout_weight="3"
-                android:layout_width="0dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
@@ -34,19 +44,21 @@
                 android:textColor="#000000"
                 />
             <ImageView
-                android:layout_weight="1"
+                android:layout_marginRight="18dp"
+                android:layout_alignParentRight="true"
                 android:src="@mipmap/side"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-        </LinearLayout>
+        </RelativeLayout>
     </android.support.v7.widget.Toolbar>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300px"
-        android:scaleType="fitXY"
-        android:src="@mipmap/banner"/>
-
+        <android.support.v4.view.ViewPager
+            app:layout_collapseMode="parallax"
+            android:id="@+id/frag_message_bannerpager"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            />
+        </LinearLayout>
+    </android.support.design.widget.CollapsingToolbarLayout>
     <android.support.design.widget.TabLayout
         app:tabTextColor="#999"
         app:tabSelectedTextColor="#000"
@@ -55,8 +67,22 @@
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+</android.support.design.widget.AppBarLayout>
+    <!--<android.support.v4.widget.NestedScrollView-->
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+       <!--&gt;-->
+    <LinearLayout
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <android.support.v4.view.ViewPager
         android:id="@+id/frag_message_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-</LinearLayout>
+    </LinearLayout>
+    <!--</android.support.v4.widget.NestedScrollView>-->
+</android.support.design.widget.CoordinatorLayout>

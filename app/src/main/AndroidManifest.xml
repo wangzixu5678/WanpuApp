@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.administrator.wanpuapp">
-<uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -21,6 +24,14 @@
         <activity android:name=".acitivity.RegisterActivity">
         </activity>
         <activity android:name=".acitivity.LoginActivity">
+        </activity>
+        <activity android:name=".acitivity.CompanyNameActivity">
+        </activity>
+        <activity android:name=".acitivity.PhoneNumberActivity">
+        </activity>
+        <activity android:name=".acitivity.VipActivity">
+        </activity>
+        <activity android:name=".acitivity.CompanyDesActivity">
         </activity>
     </application>
 

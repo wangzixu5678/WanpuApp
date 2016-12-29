@@ -10,7 +10,7 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:layout_marginTop="15dp">
+       >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,9 +48,14 @@
                 android:src="@mipmap/side"/>
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
-<android.support.v4.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pull_refresh_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ptr:ptrAnimationStyle="flip"
+        ptr:ptrMode="both"
+        >
     <LinearLayout
         android:descendantFocusability="blocksDescendants"
         android:orientation="vertical"
@@ -59,7 +64,7 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/frag_home_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="300px"
+        android:layout_height="160dp"
         android:scaleType="fitXY"
        />
 
@@ -253,7 +258,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
 
 
 </LinearLayout>

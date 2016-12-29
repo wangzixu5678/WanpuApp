@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_company_des"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.wanpuapp.acitivity.CompanyDesActivity">
+<android.support.v7.widget.Toolbar
+    android:id="@+id/acti_companydes_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公司名称"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            />
+        <TextView
+            android:layout_marginRight="10dp"
+            android:id="@+id/acti_companydes_save"
+            android:text="保存"
+            android:textSize="15dp"
+            android:textColor="#000"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+    <EditText
+        android:background="@null"
+        android:id="@+id/acti_companydes_des"
+        android:paddingLeft="5dp"
+        android:textSize="20dp"
+        android:gravity="start"
+        android:hint="请输入公司简介"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

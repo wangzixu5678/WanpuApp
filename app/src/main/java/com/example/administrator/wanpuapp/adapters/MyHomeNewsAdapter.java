@@ -1,6 +1,7 @@
 package com.example.administrator.wanpuapp.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.administrator.wanpuapp.R;
 import com.example.administrator.wanpuapp.model.HomeModel;
 
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -59,7 +61,10 @@ public class MyHomeNewsAdapter extends BaseAdapter {
          * 时间格式的转换
          */
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date(newBean.getCreate_time());
+        StringBuilder builder = new StringBuilder(String.valueOf(newBean.getCreate_time()));
+        builder.append("000");
+        String string = builder.toString();
+        Date date = new Date(Long.parseLong(string));
         String formatDate = format.format(date);
         holder.news_time.setText(formatDate);
 

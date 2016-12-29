@@ -16,7 +16,7 @@ public final class NetUtil {
     }
     public static NetService getNetServices(){
         Retrofit.Builder builder = new Retrofit.Builder();
-        Retrofit retrofit = builder.baseUrl("http://api.10000pro.com/")
+        Retrofit retrofit = builder.baseUrl("http://api.10000pro.com")
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

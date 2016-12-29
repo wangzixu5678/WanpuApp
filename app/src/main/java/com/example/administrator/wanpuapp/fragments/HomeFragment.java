@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.ScrollView;
 
 import com.example.administrator.wanpuapp.R;
 import com.example.administrator.wanpuapp.adapters.MyBannerAdapter;
@@ -22,6 +24,8 @@ import com.example.administrator.wanpuapp.customview.MyListView;
 import com.example.administrator.wanpuapp.model.HomeModel;
 import com.example.administrator.wanpuapp.net.NetService;
 import com.example.administrator.wanpuapp.utils.NetUtil;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +47,8 @@ public class HomeFragment extends Fragment {
     RecyclerView mFragHomeProRecycleview;
     @BindView(R.id.frag_home_newslist)
     MyListView mFragHomeNewslist;
+    @BindView(R.id.pull_refresh_scrollview)
+    PullToRefreshScrollView mPullRefreshScrollview;
     private boolean running;
     @BindView(R.id.frag_home_viewpager)
     ViewPager mFragHomeViewpager;
@@ -100,6 +106,15 @@ public class HomeFragment extends Fragment {
         mMyHomeNewsAdapter = new MyHomeNewsAdapter(mNews, getContext());
         mFragHomeNewslist.setAdapter(mMyHomeNewsAdapter);
         mMyHomeNewsAdapter.notifyDataSetChanged();
+        /**
+         * PulltoRefrsh下拉刷新
+         */
+        mPullRefreshScrollview.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ScrollView>() {
+            @Override
+            public void onRefresh(PullToRefreshBase<ScrollView> refreshView) {
+                setNetBanner();
+            }
+        });
         return ret;
     }
 
@@ -138,6 +153,10 @@ public class HomeFragment extends Fragment {
                 mNews.clear();
                 mNews.addAll(newX);
                 mMyHomeNewsAdapter.notifyDataSetChanged();
+                //判断是否正在刷新
+                if (mPullRefreshScrollview.isRefreshing()) {
+                    mPullRefreshScrollview.onRefreshComplete();
+                }
             }
 
             @Override
