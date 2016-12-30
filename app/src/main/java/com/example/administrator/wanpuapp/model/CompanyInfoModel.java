@@ -7,16 +7,16 @@ package com.example.administrator.wanpuapp.model;
 public class CompanyInfoModel{
     private String companyName;
     private String phoneNumber;
-    private String password;
     private String companyDes;
     private boolean isVip;
     private String companyId;
+    private String companyLogo;
+    private String companyAddress;
     private static CompanyInfoModel instance = null;
     private CompanyInfoModel(){
         companyName="未设置";
         phoneNumber="未设置";
         companyId="未设置";
-
     }
 
     public static synchronized CompanyInfoModel getNewInstance(){
@@ -24,6 +24,22 @@ public class CompanyInfoModel{
             instance = new CompanyInfoModel();
         }
         return instance;
+    }
+
+    public String getCompanyLogo() {
+        return companyLogo;
+    }
+
+    public void setCompanyLogo(String companyLogo) {
+        this.companyLogo = companyLogo;
+    }
+
+    public String getCompanyAddress() {
+        return companyAddress;
+    }
+
+    public void setCompanyAddress(String companyAddress) {
+        this.companyAddress = companyAddress;
     }
     public String getCompanyName() {
         return companyName;
@@ -39,14 +55,6 @@ public class CompanyInfoModel{
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getCompanyDes() {

@@ -33,12 +33,14 @@ public class CompanyNameActivity extends AppCompatActivity {
     LinearLayout mActivityCompanyName;
     @BindView(R.id.acti_company_toolbar)
     Toolbar mActiCompanyToolbar;
+    private CompanyInfoModel mCompanyInfoModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_name);
         ButterKnife.bind(this);
+        mCompanyInfoModel = CompanyInfoModel.getNewInstance();
         /**
          * 设置ActionBar
          */
@@ -70,9 +72,7 @@ public class CompanyNameActivity extends AppCompatActivity {
                  * 上传到服务器
                  */
                 NetService netServices = NetUtil.getNetServices();
-                Intent intent = getIntent();
-                String id = intent.getStringExtra("id");
-                Call<String> call = netServices.changeCompanyName(id, companyName);
+                Call<String> call = netServices.changeCompanyName(mCompanyInfoModel.getCompanyId(), companyName);
                 call.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {

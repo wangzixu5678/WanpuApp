@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100px"
         android:src="@mipmap/login_logo"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -43,9 +44,11 @@
         android:layout_marginTop="45px"
         android:layout_centerHorizontal="true"
         android:background="@drawable/edit_password_bg"
+        android:inputType="number"
         android:layout_width="600px"
         android:layout_height="76px"/>
     <EditText
+        android:inputType="number"
         android:textColorHint="#d3d3d3"
         android:layout_marginTop="24px"
         android:id="@+id/register_checkcode"
@@ -79,8 +82,8 @@
             android:background="@drawable/btn_complete"
             android:layout_below="@id/register_checkcode"
             android:layout_alignLeft="@id/register_phonenumber"
-            android:layout_width="600px"
-            android:layout_height="76px"/>
+            android:layout_width="300dp"
+            android:layout_height="38dp"/>
         <CheckBox
             android:layout_marginRight="5dp"
             android:layout_marginTop="15dp"
@@ -112,6 +115,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RelativeLayout>
-    </LinearLayout>
+</LinearLayout>
 
 

@@ -1,12 +1,17 @@
 package com.example.administrator.wanpuapp.acitivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.example.administrator.wanpuapp.R;
@@ -17,6 +22,9 @@ import com.example.administrator.wanpuapp.utils.NetUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CompanyDesActivity extends AppCompatActivity {
 
@@ -24,6 +32,7 @@ public class CompanyDesActivity extends AppCompatActivity {
     Toolbar mActiCompanydesToolbar;
     @BindView(R.id.acti_companydes_des)
     EditText mActiCompanydesDes;
+    private CompanyInfoModel mCompanyInfoModel;
 
 
     @Override
@@ -31,9 +40,8 @@ public class CompanyDesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_des);
         ButterKnife.bind(this);
-        Intent intent = getIntent();
-        String des = intent.getStringExtra("des");
-        mActiCompanydesDes.setText(des);
+        mCompanyInfoModel = CompanyInfoModel.getNewInstance();
+        mActiCompanydesDes.setText(mCompanyInfoModel.getCompanyDes());
 
         /**
          * 设置ActionBar
@@ -51,16 +59,26 @@ public class CompanyDesActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.acti_companydes_save:
-                CompanyInfoModel companyInfoModel = CompanyInfoModel.getNewInstance();
-                String companyDes = mActiCompanydesDes.getText().toString().trim();
-                companyInfoModel.setCompanyDes(companyDes);
+
+                 String companyDes = mActiCompanydesDes.getText().toString().trim();
+                 mCompanyInfoModel.setCompanyDes(companyDes);
                 /**
                  * 上传到服务器
                  */
-                Intent intent = getIntent();
-                String sId = intent.getStringExtra("id");
-                int id = Integer.parseInt(sId);
                 NetService netServices = NetUtil.getNetServices();
+                Call<String> call = netServices.changeCompanyDes(mCompanyInfoModel.getCompanyId(), mActiCompanydesDes.getText().toString());
+                call.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        String body = response.body();
+                        Log.d("CompanyNameActivity", "onResponse:"+body);
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+
+                    }
+                });
 
                 break;
         }

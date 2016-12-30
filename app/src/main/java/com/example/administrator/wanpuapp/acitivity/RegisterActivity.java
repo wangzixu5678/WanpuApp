@@ -1,5 +1,6 @@
 package com.example.administrator.wanpuapp.acitivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,14 +8,20 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.administrator.wanpuapp.R;
 import com.example.administrator.wanpuapp.net.NetService;
 import com.example.administrator.wanpuapp.utils.NetUtil;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,9 +29,6 @@ import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -32,6 +36,13 @@ public class RegisterActivity extends AppCompatActivity {
     Toolbar mRegisterToolbar;
     @BindView(R.id.register_phonenumber)
     EditText mRegisterPhonenumber;
+    @BindView(R.id.register_checkcode)
+    EditText mRegisterCheckcode;
+    @BindView(R.id.rigister_checkbox)
+    CheckBox mRigisterCheckbox;
+    private String mState;
+    private String mVerify;
+    private String mPhonenumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,26 +79,81 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.register_getCheckcode)
+    @OnClick({R.id.register_getCheckcode, R.id.rigister_btn_register})
     public void onClick(View view) {
-        NetService netService = NetUtil.getNetServices();
-        String phoneNumber = mRegisterPhonenumber.getText().toString();
-        Call<String> call = netService.getSmsResult(phoneNumber);
+        switch (view.getId()) {
+            case R.id.register_getCheckcode:
+                mPhonenumber = mRegisterPhonenumber.getText().toString().trim();
+                Log.d("Regisiter", "onClick:"+mPhonenumber);
+                if (mPhonenumber.length() == 11) {
+                    getSmsCheckCode(mPhonenumber);
+                } else {
+                    Log.d("Regisiter", "onClick:"+"手机号码格式不正确");
+                    Toast.makeText(this, "手机号码格式不正确", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.rigister_btn_register:
+                if (mRigisterCheckbox.isChecked()){
+                    String checkcode = mRegisterCheckcode.getText().toString().trim();
+                    if (checkcode.length()!=0){
+                        if (mState.equals("ok")&&mVerify.length()!=0) {
+                            if (mVerify.equals(checkcode)){
+                                Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(this,PasswordActivity.class);
+                                intent.putExtra("phonenumber",mPhonenumber);
+                                startActivity(intent);
+                            }else {
+                                Toast.makeText(this, "验证码错误", Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            Toast.makeText(this, "验证码接收失败", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }else {
+                        Toast.makeText(this, "请输入验证码", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else {
+                    Toast.makeText(this, "请阅读服务协议", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
+
+    }
+
+    private void getSmsCheckCode(String phonenumber) {
+        NetService netServices = NetUtil.getNetServices();
+        Call<String> call = netServices.getSmsResult(phonenumber);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                String s = response.body();
-                Log.d("RegisterActivity", "onResponse:" + s);
+                String json = response.body();
+                Log.d("Register", "onResponse: "+json);
+                JSONObject jsonObject = null;
+                try {
+                    jsonObject = new JSONObject(json);
+                    mState = jsonObject.getString("state");
+                    mVerify = jsonObject.getString("verify");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Log.d("RegisterActivity", "失败");
+                Log.d("Register", "onFailure:" + "验证码获取失败");
+
             }
         });
     }
 
-
-
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return true;
+    }
 }

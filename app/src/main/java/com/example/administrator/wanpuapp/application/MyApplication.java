@@ -2,6 +2,8 @@ package com.example.administrator.wanpuapp.application;
 
 import android.app.Application;
 
+import com.example.administrator.wanpuapp.utils.SharedPreferencesUtil;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.EventBusBuilder;
 
@@ -15,5 +17,6 @@ public class MyApplication extends Application {
         super.onCreate();
         EventBusBuilder builder = EventBus.builder();
         builder.installDefaultEventBus();
+        SharedPreferencesUtil.init(getApplicationContext(),"wanpuhuanbao",MODE_PRIVATE);
     }
 }

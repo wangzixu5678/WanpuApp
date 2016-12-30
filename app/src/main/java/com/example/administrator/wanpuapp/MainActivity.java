@@ -1,5 +1,6 @@
 package com.example.administrator.wanpuapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -18,6 +19,12 @@ import com.example.administrator.wanpuapp.fragments.MessageFragment;
 import com.example.administrator.wanpuapp.fragments.ProductFragment;
 import com.example.administrator.wanpuapp.fragments.ResourceFragment;
 import com.example.administrator.wanpuapp.fragments.UserFragment;
+import com.example.administrator.wanpuapp.model.CompanyInfoModel;
+import com.google.gson.JsonObject;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,25 +58,52 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private Drawable mDrawable_product_black;
     private Drawable mDrawable_me_white;
     private Drawable mDrawable_me_black;
-    private static final int NHOME = 0;
-    private static final int NMESSAGE = 1;
-    private static final int NRESOURCE = 2;
-    private static final int NPRODUCT = 3;
-    private static final int NUSER = 4;
     private FragmentManager mManager;
     private FragmentTransaction mTransaction;
-
+    private boolean isFirst=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /**
+         * 状态栏
+         */
+        setLand();
         ButterKnife.bind(this);
         initDrawable();
-//        initFragment();
+
+        /**
+         * 初始化公司信息
+         */
+        Intent intent = getIntent();
+        String companyinfo = intent.getStringExtra("companyinfo");
+        try {
+            JSONObject jsonObject = new JSONObject(companyinfo);
+            JSONObject data = jsonObject.getJSONObject("data");
+            CompanyInfoModel infoModel = CompanyInfoModel.getNewInstance();
+            infoModel.setCompanyId(data.getString("company_id"));
+            infoModel.setPhoneNumber(data.getString("phone"));
+            infoModel.setCompanyAddress(data.getString("address"));
+            infoModel.setCompanyName(data.getString("name"));
+            infoModel.setCompanyDes(data.getString("des"));
+            infoModel.setCompanyLogo(data.getString("logo"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        /**
+         * 初始化Fragment
+         */
+        mHomeFragment = new HomeFragment();
+        mMessageFragment = new MessageFragment();
+        mResourceFragment = new ResourceFragment();
+        mProductFragment = new ProductFragment();
+        mUserFragment = new UserFragment();
         mMainRadiogroup.setOnCheckedChangeListener(this);
         mMainRadiogroup.check(R.id.main_home);
-
     }
+
+
 
     private void initDrawable() {
         mDrawable_home_white = this.getResources().getDrawable(R.drawable.home_white);
@@ -84,20 +118,20 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         mDrawable_me_black = this.getResources().getDrawable(R.drawable.me_black);
     }
 
-//    private void initFragment() {
-//        mHomeFragment = new HomeFragment();
-//        mMessageFragment = new MessageFragment();
-//        mResourceFragment = new ResourceFragment();
-//        mProductFragment = new ProductFragment();
-//        mUserFragment = new UserFragment();
-//    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        //初始化Fragment管理器
-//        FragmentManager manager = getSupportFragmentManager();
-//        FragmentTransaction beginTransaction = manager.beginTransaction();
-        //初始化GroupButton
+        mManager = getSupportFragmentManager();
+        mTransaction = mManager.beginTransaction();
+        while (isFirst) {
+            mTransaction.add(R.id.main_container, mHomeFragment,"tab1");
+            mTransaction.add(R.id.main_container, mMessageFragment,"tab2");
+            mTransaction.add(R.id.main_container, mResourceFragment,"tab3");
+            mTransaction.add(R.id.main_container, mProductFragment,"tab4");
+            mTransaction.add(R.id.main_container, mUserFragment,"tab5");
+            isFirst =false;
+        }
+        hideFragment(mTransaction);
         mMainHome.setCompoundDrawablesRelativeWithIntrinsicBounds(null,mDrawable_home_white,null,null);
         mMainMessage.setCompoundDrawablesRelativeWithIntrinsicBounds(null,mDrawable_message_white,null,null);
         mMainResource.setCompoundDrawablesRelativeWithIntrinsicBounds(null,mDrawable_supply_white,null,null);
@@ -106,99 +140,57 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         switch (checkedId){
             case R.id.main_home:
                 mMainHome.setCompoundDrawablesWithIntrinsicBounds(null,mDrawable_home_black,null,null);
-                showFragment(NHOME);
-                //beginTransaction.replace(R.id.main_container,mHomeFragment);
+                mTransaction.show(mHomeFragment);
                 break;
             case R.id.main_message:
                 mMainMessage.setCompoundDrawablesWithIntrinsicBounds(null,mDrawable_message_black,null,null);
-                showFragment(NMESSAGE);
-                //beginTransaction.replace(R.id.main_container,mMessageFragment);
+                mTransaction.show(mMessageFragment);
                 break;
             case R.id.main_resource:
                 mMainResource.setCompoundDrawablesWithIntrinsicBounds(null,mDrawable_supply_black,null,null);
-                showFragment(NRESOURCE);
-                //beginTransaction.replace(R.id.main_container,mResourceFragment);
+                mTransaction.show(mResourceFragment);
                 break;
             case R.id.main_product:
                 mMainProduct.setCompoundDrawablesWithIntrinsicBounds(null,mDrawable_product_black,null,null);
-                showFragment(NPRODUCT);
-                //beginTransaction.replace(R.id.main_container,mProductFragment);
+                mTransaction.show(mProductFragment);
                 break;
             case R.id.main_user:
                 mMainUser.setCompoundDrawablesWithIntrinsicBounds(null,mDrawable_me_black,null,null);
-                showFragment(NUSER);
-                //beginTransaction.replace(R.id.main_container,mUserFragment);
-                break;
-        }
-        //beginTransaction.commit();
-    }
-
-    public void showFragment(int index){
-        mManager = getSupportFragmentManager();
-        mTransaction = mManager.beginTransaction();
-        hideFragment(mTransaction);
-        switch (index) {
-            case NHOME:
-                if (mHomeFragment == null) {
-                    mHomeFragment = new HomeFragment();
-                    mTransaction.add(R.id.main_container, mHomeFragment);
-                } else {
-                    mTransaction.show(mHomeFragment);
-                }
-                break;
-            case NMESSAGE:
-                if (mMessageFragment == null) {
-                    mMessageFragment = new MessageFragment();
-                    mTransaction.add(R.id.main_container, mMessageFragment);
-                } else {
-                    mTransaction.show(mMessageFragment);
-                }
-                break;
-            case NRESOURCE:
-                if (mResourceFragment == null) {
-                    mResourceFragment = new ResourceFragment();
-                    mTransaction.add(R.id.main_container, mResourceFragment);
-                } else {
-                    mTransaction.show(mResourceFragment);
-                }
-                break;
-            case NPRODUCT:
-                if (mProductFragment == null) {
-                    mProductFragment = new ProductFragment();
-                    mTransaction.add(R.id.main_container, mProductFragment);
-                } else {
-                    mTransaction.show(mProductFragment);
-                }
-                break;
-            case NUSER:
-                if (mUserFragment == null) {
-                    mUserFragment = new UserFragment();
-                    mTransaction.add(R.id.main_container,mUserFragment);
-                } else {
-                    mTransaction.show(mUserFragment);
-                }
+                mTransaction.show(mUserFragment);
                 break;
         }
         mTransaction.commit();
     }
-
     private void hideFragment(FragmentTransaction transaction) {
-        if (mHomeFragment!=null){
             transaction.hide(mHomeFragment);
-        }
-        if (mMessageFragment!=null){
             transaction.hide(mMessageFragment);
-        }
-        if (mResourceFragment!=null){
             transaction.hide(mResourceFragment);
-        }
-        if (mProductFragment!=null){
             transaction.hide(mProductFragment);
-        }
-        if (mUserFragment!=null){
             transaction.hide(mUserFragment);
-        }
     }
 
+    private void setLand() {
+        /**
+         * 设置沉浸状态栏
+         */
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //透明导航栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            // 激活状态栏
+            tintManager.setStatusBarTintEnabled(true);
+            // enable navigation bar tint 激活导航栏
+            tintManager.setNavigationBarTintEnabled(true);
+            //设置系统栏设置颜色
+            //tintManager.setTintColor(R.drawable.black);
+            //给状态栏设置颜色
+            tintManager.setStatusBarTintResource(R.drawable.land_bg);
+            //Apply the specified drawable or color resource to the system navigation bar.
+            //给导航栏设置资源
+            tintManager.setNavigationBarTintResource(R.drawable.land_bg);
+        }
+    }
 
 }

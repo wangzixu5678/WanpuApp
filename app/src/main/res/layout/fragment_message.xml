@@ -55,7 +55,7 @@
             app:layout_collapseMode="parallax"
             android:id="@+id/frag_message_bannerpager"
             android:layout_width="match_parent"
-            android:layout_height="300px"
+            android:layout_height="150dp"
             />
         </LinearLayout>
     </android.support.design.widget.CollapsingToolbarLayout>

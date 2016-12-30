@@ -20,7 +20,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.administrator.wanpuapp.R;
+import com.example.administrator.wanpuapp.acitivity.ChangePasswordActivity;
 import com.example.administrator.wanpuapp.acitivity.CompanyDesActivity;
 import com.example.administrator.wanpuapp.acitivity.CompanyNameActivity;
 import com.example.administrator.wanpuapp.acitivity.PhoneNumberActivity;
@@ -33,7 +35,12 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -84,21 +91,33 @@ public class UserFragment extends Fragment {
         ButterKnife.bind(this, ret);
         EventBus.getDefault().register(this);
         mCompanyInfoModel = CompanyInfoModel.getNewInstance();
+        /**
+         * 初始化UserFragment用户信息
+         */
+        mFragUserSetcompanyname.setText(mCompanyInfoModel.getCompanyName().trim());
+        mFragUserCompanyname.setText( mCompanyInfoModel.getCompanyName().trim());
+        mFragUserPhonenumber.setText( mCompanyInfoModel.getPhoneNumber().trim());
+        String logo = mCompanyInfoModel.getCompanyLogo();
+        Log.d("UserFragment", "onCreateView:" + logo);
+        if (logo.equals("")){
+            mFragUserHead.setImageResource(R.mipmap.myhead);
+        }else {
+            Glide.with(this).load(mCompanyInfoModel.getCompanyLogo()).into(mFragUserHead);
+        }
+
         return ret;
     }
 
-    @OnClick({R.id.frag_user_changecompanyname, R.id.frag_user_changephonenumber, R.id.frag_user_openvip, R.id.frag_user_companydes, R.id.frag_user_head})
+    @OnClick({R.id.frag_user_changecompanyname, R.id.frag_user_changephonenumber, R.id.frag_user_openvip, R.id.frag_user_companydes, R.id.frag_user_head,R.id.frag_user_changepassword})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
             case R.id.frag_user_changecompanyname:
                 intent = new Intent(getContext(), CompanyNameActivity.class);
-                intent.putExtra("id", mFragUserCompanyid.getText());
                 startActivity(intent);
                 break;
             case R.id.frag_user_changephonenumber:
                 intent = new Intent(getContext(), PhoneNumberActivity.class);
-                intent.putExtra("id", mFragUserCompanyid.getText());
                 startActivity(intent);
                 break;
             case R.id.frag_user_openvip:
@@ -107,12 +126,14 @@ public class UserFragment extends Fragment {
                 break;
             case R.id.frag_user_companydes:
                 intent = new Intent(getContext(), CompanyDesActivity.class);
-                intent.putExtra("id", mFragUserCompanyid.getText());
-                intent.putExtra("des", mCompanyInfoModel.getCompanyDes());
                 startActivity(intent);
                 break;
             case R.id.frag_user_head:
                 showChoosePicDialog();
+                break;
+            case R.id.frag_user_changepassword:
+                intent = new Intent(getContext(), ChangePasswordActivity.class);
+                startActivity(intent);
                 break;
         }
     }
@@ -192,21 +213,23 @@ public class UserFragment extends Fragment {
     private void imageUpLoad(String path) {
         File file = new File(path);
         RequestBody photoRequestBody = RequestBody.create(MediaType.parse("image/png"), file);
-        MultipartBody.Part photo = MultipartBody.Part.createFormData("image", "icon.png", photoRequestBody);
+        MultipartBody.Part photo = MultipartBody.Part.createFormData("logo",file.getName(), photoRequestBody);
         NetService netServices = NetUtil.getNetServices();
-        Call<String> call = netServices.upLoadPic(mFragUserCompanyid.getText().toString(),photo);
+        Call<String> call = netServices.upLoadPic(mCompanyInfoModel.getCompanyId(), photo);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                Log.d("UserFragment", "onResponse:"+"成功");
+                String body = response.body();
+                Log.d("UserFragment", "onResponse:"+body);
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Log.d("UserFragment", "onResponse:"+"失败");
                 Log.d("UserFragment", "onResponse:"+t.toString());
             }
         });
+
+
     }
 
 //    private MultipartBody.Part prepareFilePart(String partName, String path) {

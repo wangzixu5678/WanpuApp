@@ -115,11 +115,8 @@ public class PhoneNumberActivity extends AppCompatActivity {
                             /**
                              * 上传绑定手机号到服务器
                              */
-                            Intent intent = getIntent();
-                            String sId = intent.getStringExtra("id");
-                            int id = Integer.parseInt(sId);
-                            Log.d("PhoneNumber", "onClick:"+id);
-                            Call<String> call = netServices.changePhoneNumber(id, mPhoneNumber);
+                            String id = CompanyInfoModel.getNewInstance().getCompanyId();
+                            Call<String> call = netServices.changePhoneNumber(id,mPhoneNumber);
                             call.enqueue(new Callback<String>() {
                                 @Override
                                 public void onResponse(Call<String> call, Response<String> response) {

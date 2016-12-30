@@ -191,6 +191,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
+            android:background="@drawable/user_item_sel"
             android:id="@+id/frag_user_changephonenumber"
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -219,6 +220,8 @@
             android:layout_height="2px"/>
     </LinearLayout>
     <LinearLayout
+        android:background="@drawable/user_item_sel"
+        android:id="@+id/frag_user_changepassword"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:orientation="vertical"
@@ -237,7 +240,7 @@
                 />
             <ImageView
                 android:layout_marginLeft="10dp"
-                android:id="@+id/frag_user_changepassword"
+                android:id="@+id/frag_user_changepasswordimg"
                 android:src="@mipmap/left"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
@@ -246,7 +249,7 @@
 
             <ImageView
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@id/frag_user_changepassword"
+                android:layout_toLeftOf="@id/frag_user_changepasswordimg"
                 android:src="@mipmap/clock_little"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -257,6 +260,7 @@
             android:layout_height="2px"/>
     </LinearLayout>
     <LinearLayout
+        android:background="@drawable/user_item_sel"
         android:id="@+id/frag_user_openvip"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
@@ -296,6 +300,7 @@
             android:layout_height="2px"/>
     </LinearLayout>
     <LinearLayout
+        android:background="@drawable/user_item_sel"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:orientation="vertical"
